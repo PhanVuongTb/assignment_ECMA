@@ -1,0 +1,96 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Samsung Galaxy Z Flip3 5G 128GB",
+      "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645367325/pq8zmxgof7xyag7dg0dm.jpg",
+      "content": "Một biểu tượng thời trang, một kiệt tác của thế giới công nghệ mà ai cũng phải kinh ngạc khi nhìn thấy Samsung Galaxy Z Flip3 5G và cách mà bạn sử dụng siêu phẩm smartphone này, nơi công nghệ điện thoại màn hình gập đã mang đến những điều không tưởng.",
+      "date": "2022-02-18",
+      "desc": "Chắc chắn không ai có thể cưỡng lại vẻ đẹp của Samsung Galaxy Z Flip3 5G. Một chiếc điện thoại gập có kích thước siêu nhỏ gọn và đầy đáng yêu với dạng hình vuông, chỉ nhỏ bằng phân nửa điện thoại thông thường.\n\nKiểu dáng khác biệt, vật liệu cao cấp và cách phối màu tinh tế giúp Galaxy Z Flip3 5G nhìn giống một món đồ trang sức hơn là một sản phẩm công nghệ. Bạn sẽ có 4 phiên bản màu sắc đầy cá tính để lựa chọn là Kem Ivory, Đen Phantom, Xanh Phantom và Tím Lilac."
+    },
+    {
+      "id": "2",
+      "title": "Samsung Galaxy Note 20 Ultra ",
+      "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645367362/ivrmqsk7pdhmtuajkmkr.jpg",
+      "content": "Đặc điểm nổi bật của Samsung Galaxy Note 20 Ultra",
+      "date": "2022-02-18",
+      "desc": "Chiếc Galaxy Note màn hình lớn nhất, bút S Pen thông minh nhất và những tính năng mạnh mẽ nhất đã xuất hiện. Samsung Galaxy Note 20 Ultra sẽ định nghĩa lại smartphone, thay đổi những trải nghiệm của bạn theo cách thú vị hơn bao giờ hết."
+    },
+    {
+      "title": "iPhone 13 Pro Max 128GB",
+      "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645367477/gp3wsy1hm0wh47l1b0ec.jpg",
+      "content": "Đặc điểm nổi bật của iPhone 13 Pro Max",
+      "date": "2022-02-20",
+      "desc": "Dù là giải trí khi xem phim, chơi game hay kiểm tra email, đọc tài liệu thì màn hình lớn tới 6,7 inch của iPhone 13 Pro Max cũng luôn cho trải nghiệm tuyệt vời nhất.\n\nKhông chỉ lớn, đây còn là màn hình chất lượng hàng đầu thế giới smartphone với tấm nền OLED tuyệt đẹp, công nghệ Super Retina XDR siêu nét và độ sáng tối đa đạt mức khó tin, lên tới 1200 nits cho nội dung HDR. Trước mắt bạn là một không gian giải trí mãn nhãn, một thiết bị di động lý tưởng để giải quyết nhanh công việc với màn hình thực sự xuất sắc.",
+      "id": "8wfKSUo"
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$fkjIIuLfzwYxJ5FCoEjLI.lfHFEiFaGzweVxybs.jfCY8eB1y2URm",
+      "firstname": "Vượng",
+      "lastname": "Phan",
+      "gender": "Nam",
+      "streetaddress": "Thái Bình.",
+      "id": 1
+    },
+    {
+      "email": "khach@gmail.com",
+      "password": "$2a$10$SGRZyG/lvnbi75g5klIsPuX4qkXl0r8CttyAbdESVe5wZBvi4Il3S",
+      "firstname": "Trăm",
+      "lastname": "Nguyễn",
+      "gender": "Nữ",
+      "streetaddress": "Hoài Đức, Hà Nội.",
+      "id": 2
+    }
+  ],
+  "products": [
+    {
+      "name": "iPhone 13 128GB",
+      "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645367001/ripovnytyefiwnad6xsw.jpg",
+      "price": "24990000",
+      "detail": "iPhone 13 sở hữu hệ thống camera kép xuất sắc nhất từ trước đến nay, bộ vi xử lý Apple A15 nhanh nhất thế giới smartphone cùng thời lượng pin cực khủng, sẵn sàng đồng hành cùng bạn suốt cả ngày.",
+      "list": "",
+      "id": "AA-CfBs"
+    },
+    {
+      "name": "iPhone 12 64GB",
+      "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645367090/stdymln70txc1g0o6vwk.jpg",
+      "price": "21999000",
+      "detail": "iPhone 12 ra mắt với vai trò mở ra một kỷ nguyên hoàn toàn mới. Tốc độ mạng 5G siêu tốc, bộ vi xử lý A14 Bionic nhanh nhất thế giới smartphone, màn hình OLED tràn cạnh tuyệt đẹp và camera siêu chụp đêm, tất cả đều có mặt trên iPhone 12.",
+      "list": "",
+      "id": "1yQmzq2"
+    },
+    {
+      "name": "Samsung Galaxy Note 20 Ultra ",
+      "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645367180/nuemxucrmkkxtckczz42.jpg",
+      "price": "20990000",
+      "detail": "Chiếc Galaxy Note màn hình lớn nhất, bút S Pen thông minh nhất và những tính năng mạnh mẽ nhất đã xuất hiện. Samsung Galaxy Note 20 Ultra sẽ định nghĩa lại smartphone, thay đổi những trải nghiệm của bạn theo cách thú vị hơn bao giờ hết.",
+      "list": "",
+      "id": "lkyWzRd"
+    },
+    {
+      "name": "Samsung Galaxy Z Flip3 5G 128GB",
+      "img": "http://res.cloudinary.com/dev7lem1d/image/upload/v1645367243/jaompehsiw2lebznwglg.jpg",
+      "price": "23990000",
+      "detail": "Một biểu tượng thời trang, một kiệt tác của thế giới công nghệ mà ai cũng phải kinh ngạc khi nhìn thấy Samsung Galaxy Z Flip3 5G và cách mà bạn sử dụng siêu phẩm smartphone này, nơi công nghệ điện thoại màn hình gập đã mang đến những điều không tưởng.",
+      "list": "",
+      "id": "bQ07S20"
+    }
+  ],
+  "cate": [
+    {
+      "id": "1",
+      "name": "Iphone"
+    },
+    {
+      "id": "2",
+      "name": "Samsung"
+    },
+    {
+      "name": "xiaomi",
+      "id": "F_pBOzu"
+    }
+  ]
+}
