@@ -43,6 +43,15 @@
       "gender": "Nữ",
       "streetaddress": "Hoài Đức, Hà Nội.",
       "id": 2
+    },
+    {
+      "email": "vuongtb@gmail.com",
+      "password": "$2a$10$FVs3z00k2qFvCicUtRymX.3EqdjHCFxxQizbHAOAGjC5AgZi7Q0/S",
+      "firstname": "vượng",
+      "lastname": "Phan Đức",
+      "gender": "Nam",
+      "streetaddress": "Hà Nội",
+      "id": 3
     }
   ],
   "products": [

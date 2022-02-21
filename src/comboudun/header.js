@@ -2,8 +2,8 @@ import Cate from "./cate";
 import { reRender } from "../utils/rerender";
 
 const Header = {
-    render() {
-        return /* html */`
+  render() {
+    return /* html */`
       <div x-data="{ cartOpen: false , isOpen: false }" class="bg-white">
         <header>
           <div class="container mx-auto px-6 py-3">
@@ -83,7 +83,10 @@ const Header = {
                         aria-labelledby="headlessui-menu-button-1" id="headlessui-menu-items-117" role="menu">
                         <div class="px-4 py-3">
                           <p class="text-sm leading-5">Signed in as</p>
+                          <div class="flex">
+                          <span class="block py-3 px-4 text-black" id="name"></span>
                           <span class="block py-3 px-4 text-black" id="account"></span>
+                          </div>
                         </div>
                         <div class="py-1">
                           <a href="/admin/statistical" tabindex="0"
@@ -164,17 +167,19 @@ const Header = {
         
       </div>
         `;
-    },
-    afterRender() {
-        const account = document.querySelector("#account");
-        const btnLogout = document.querySelector("#logout");
-        account.innerHTML = JSON.parse(localStorage.getItem("user")).email;
+  },
+  afterRender() {
+    const account = document.querySelector("#account");
+    const nam = document.querySelector("#name");
+    const btnLogout = document.querySelector("#logout");
+    account.innerHTML = JSON.parse(localStorage.getItem("user")).firstname;
+    nam.innerHTML = JSON.parse(localStorage.getItem("user")).lastname;
 
-        btnLogout.addEventListener("click", () => {
-            localStorage.removeItem("user");
-            alert("Ban da logout thanh cong");
-            reRender(Header, "#header");
-        });
-    },
+    btnLogout.addEventListener("click", () => {
+      localStorage.removeItem("user");
+      alert("Ban da logout thanh cong");
+      reRender(Header, "#header");
+    });
+  },
 };
 export default Header;

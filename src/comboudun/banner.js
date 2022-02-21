@@ -1,6 +1,6 @@
 const Banner = {
-    render() {
-        return /* html */ ` 
+  render() {
+    return /* html */ ` 
           <div class="md:flex md:flex-row mt-20">
           <div class="md:w-2/5 flex flex-col justify-center items-center">
             <h2 class="font-serif text-5xl text-gray-600 mb-4 text-center md:self-start md:text-left pl-10">iPhone 13 128GB
@@ -28,9 +28,9 @@ const Banner = {
               mua Ốp lưng chính hãng .</p>
           </div>
           <div class="md:w-3/5">
-            <img src="./images/iphone-13-midnight-2-600x600.jpg" class="w-10/12" />
+            <img src="https://images.fpt.shop/unsafe/fit-in/960x640/filters:quality(90):fill(white):upscale()/fptshop.com.vn/Uploads/Originals/2021/11/4/637716428589973121_4.jpg" class="w-10/12" />
           </div>
         </div>`;
-    },
+  },
 };
 export default Banner;

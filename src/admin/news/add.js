@@ -1,4 +1,6 @@
 import axios from "axios";
+import $ from "jquery";
+import validate from "jquery-validation";
 import NavAdmin from "../../components/NavAdmin";
 import { add } from "../../api/posts";
 
@@ -26,13 +28,14 @@ const AddNewsPage = {
                                 <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-gray-700">
                                     Tiêu Đề
                                 </span>
-                                <input type="text" id="tieuDe" class="mt-1 px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="" />
+                                <input type="text" id="tieuDe" name="tieuDe" class="mt-1 px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="" />
                             </div>
                             <div class="col-span-6 sm:col-span-3">
                             <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-gray-700">
                                Hình Ảnh
                             </span>
                             <input type="file" id="img" class="mt-1 px-3 py-2 bg-white border shadow-sm border-gray-300 placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="" />
+                            <img width="200" src="https://thumbs.dreamstime.com/b/no-thumbnail-image-placeholder-forums-blogs-websites-148010362.jpg" id="img-preview"/>
                         </div>
                             <div class="col-span-6 sm:col-span-3">
                             <span class="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-gray-700">
@@ -68,33 +71,62 @@ const AddNewsPage = {
                     `;
     },
     afterRender() {
-        const formAdd = document.querySelector("#form-add-post");
+        const formAddPost = $("#form-add-post");
+        const imgPreview = document.querySelector("#img-preview");
+        const imgPost = document.querySelector("#img");
+        let imgLink = "";
+
         const CLOUDINARY_PRESET = "k9yoyn7r";
         const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/dev7lem1d/image/upload";
-        formAdd.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            // Lấy giá trị của input file
-            const file = document.querySelector("#img").files[0];
-            // Gắn vào đối tượng formData
-            const formData = new FormData();
-            formData.append("file", file);
-            formData.append("upload_preset", CLOUDINARY_PRESET);
 
-            // call api cloudinary, để upload ảnh lên
-            const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
-                headers: {
-                    "Content-Type": "application/form-data",
+        imgPost.addEventListener("change", (e) => {
+            imgPreview.src = URL.createObjectURL(e.target.files[0]);
+        });
+
+        formAddPost.validate({
+            rules: {
+                tieuDe: {
+                    required: true,
+                    minlength: 5,
                 },
-            });
-            // call API thêm bài viết
-            add({
-                title: document.querySelector("#tieuDe").value,
-                img: data.url,
-                content: document.querySelector("#noiDung").value,
-                date: document.querySelector("#ngayDang").value,
-                desc: document.querySelector("#chiTiet").value,
-            });
-            document.location.href = "/admin/news";
+            },
+            messages: {
+                tieuDe: {
+                    required: "Không để trống trường này!",
+                    minlength: "Ít nhất phải trên 5 ký tự",
+                },
+            },
+            submitHandler: () => {
+                async function handleAddPost() {
+                    // Lấy giá trị của input file
+                    const file = document.querySelector("#img").files[0];
+                    if (file) {
+                        // Gắn vào đối tượng formData
+                        const formData = new FormData();
+                        formData.append("file", file);
+                        formData.append("upload_preset", CLOUDINARY_PRESET);
+
+                        // call api cloudinary, để upload ảnh lên
+                        const { data } = await axios.post(CLOUDINARY_API_URL, formData, {
+                            headers: {
+                                "Content-Type": "application/form-data",
+                            },
+                        });
+                        imgLink = data.url;
+                    }
+
+                    // call API thêm bài viết
+                    add({
+                        title: document.querySelector("#tieuDe").value, // iphone x plus 10
+                        img: imgLink || "",
+                        content: document.querySelector("#noiDung").value,
+                        date: document.querySelector("#ngayDang").value,
+                        desc: document.querySelector("#chiTiet").value,
+                    });
+                    document.location.href = "/admin/news";
+                }
+                handleAddPost();
+            },
         });
     },
 };

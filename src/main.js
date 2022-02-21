@@ -97,9 +97,6 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     "/admin/user/add": () => {
         print(AddUserPage);
     },
-    "/admin/user/:id/edit": () => {
-        print(editUser);
-    },
     "/admin/products": () => {
         print(ProductsPage);
     },
@@ -118,6 +115,7 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     "/admin/cate": () => print(newsCate),
     "/admin/cate/add": () => print(AddCate),
     "/admin/cate/:id/edit": ({ data }) => print(editCate, data.id),
+    "/admin/user/:id/edit": ({ data }) => print(editUser, data.id),
 
 });
 router.resolve(); // kích hoạt thằng router để chạy

@@ -4,12 +4,12 @@ import "toastr/build/toastr.min.css";
 
 const Signup = {
     render() {
-        return `
+        return /* html */`
         <div class="max-w-5xl mx-auto">
         <h3 class="text-center">TRANG ĐĂNG KÝ</h3>
         <div>
         <div class="py-4">
-        <img src="https://pubcdn.ivymoda.com/images/logo.png" class="mx-auto" />
+        <img src="./images/logo-footer.png" class="mx-auto" />
        </div>
     <div class="mt-10 sm:mt-0">
         <div class="mt-5 md:mt-0 md:col-span-2">

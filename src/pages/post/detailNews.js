@@ -1,11 +1,12 @@
 import Header from "../../comboudun/header";
 import Footer from "../../comboudun/footer";
+import Comments from "../../comboudun/comments";
 import { get } from "../../api/posts";
 
 const DetailNewsPage = {
-    async render(id) {
-        const { data } = await get(id);
-        return `
+  async render(id) {
+    const { data } = await get(id);
+    return `
         ${Header.render()}
         <div class="max-w-screen-lg mx-auto place-content-center">
         <main class="mt-10">
@@ -31,7 +32,10 @@ const DetailNewsPage = {
           </div>
         </main>
       </div>
+      <div>
+            ${Comments.render()}
+            </div>
       ${Footer.render()}`;
-    },
+  },
 };
 export default DetailNewsPage;

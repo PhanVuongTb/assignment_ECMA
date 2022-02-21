@@ -3,9 +3,9 @@ import NavAdmin from "../../components/NavAdmin";
 import { reRender } from "../../utils/rerender";
 
 const UserPage = {
-    async render() {
-        const response = await getAll();
-        return /* html */`
+  async render() {
+    const response = await getAll();
+    return /* html */`
         <div class="min-h-full">
             ${NavAdmin.render()}
             <header class="bg-white shadow">
@@ -100,7 +100,7 @@ const UserPage = {
                               ${user.password}
                              </td>
                               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="/admin/products/${user.id}/edit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">sửa</a>
+                                <a href="/admin/user/${user.id}/edit" class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">sửa</a>
                               </td>                              
                               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <button data-id=${user.id} class="bnt btn-remove inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Xóa</button>
@@ -123,25 +123,25 @@ const UserPage = {
         </div>
     
                     `;
-    },
-    afterRender() {
-        // lấy toàn bộ danh sách button có class là .btn
-        const buttons = document.querySelectorAll(".bnt");
-        // tạo vòng lặp để lấy ra từng button
-        buttons.forEach((button) => {
-            // sử dụng dataset để lấy id từ data-*
-            const { id } = button.dataset;
-            // click vào button thì xóa phần tử trong mảng
-            // dựa vào ID vừa lấy được
-            button.addEventListener("click", () => {
-                const confirm = window.confirm("Bạn chắc chắn muốn xóa không?");
-                if (confirm) {
-                    remove(id).then(() => {
-                        reRender(UserPage, "#app");
-                    });
-                }
-            });
-        });
-    },
+  },
+  afterRender() {
+    // lấy toàn bộ danh sách button có class là .btn
+    const buttons = document.querySelectorAll(".bnt");
+    // tạo vòng lặp để lấy ra từng button
+    buttons.forEach((button) => {
+      // sử dụng dataset để lấy id từ data-*
+      const { id } = button.dataset;
+      // click vào button thì xóa phần tử trong mảng
+      // dựa vào ID vừa lấy được
+      button.addEventListener("click", () => {
+        const confirm = window.confirm("Bạn chắc chắn muốn xóa không?");
+        if (confirm) {
+          remove(id).then(() => {
+            reRender(UserPage, "#app");
+          });
+        }
+      });
+    });
+  },
 };
 export default UserPage;

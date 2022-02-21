@@ -1,5 +1,6 @@
 import toastr from "toastr";
 import Header from "../../comboudun/header";
+import Comments from "../../comboudun/comments";
 import Footer from "../../comboudun/footer";
 import { get } from "../../api/products";
 import { addToCart } from "../../utils/cart";
@@ -33,7 +34,7 @@ const DetailProductPage = {
                 <div class="mt-3">
                   <label class="text-gray-700 text-sm" for="count">Thông tin sản phẩm:</label>
                   <div class="flex items-center mt-1">
-                  <p>${data.content}</p>
+                  <p>${data.desc}</p>
                   </div>
                 </div>
                 <div class="flex items-center mt-6">
@@ -42,6 +43,9 @@ const DetailProductPage = {
                     Now</button>
                 </div>
               </div>
+            </div>
+            <div>
+            ${Comments.render()}
             </div>
             <div class="mt-16">
               <h3 class="text-gray-600 text-2xl font-medium">Sản phẩm liên quan</h3>
@@ -123,6 +127,7 @@ const DetailProductPage = {
           </div>
         </main>       
       </div>
+      
       ${Footer.render()}
 `;
   },

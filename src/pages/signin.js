@@ -4,12 +4,12 @@ import "toastr/build/toastr.min.css";
 
 const Signin = {
     render() {
-        return `
+        return /* html */`
     <div class="max-w-5xl mx-auto">
     <h3 class="text-center">TRANG ĐĂNG NHẬP</h3>
     <div>
     <div class="py-4">
-    <img src="https://imgur.com/WciCjcw" class="mx-auto" />
+    <img src="./images/logo-footer.png" class="mx-auto" />
    </div>
 <div class="mt-10 sm:mt-0">
     <div class="mt-5 md:mt-0 md:col-span-2">
@@ -52,13 +52,12 @@ const Signin = {
                     password: document.querySelector("#password").value,
                 });
                 if (data) {
-                    console.log(data.user);
                     localStorage.setItem("user", JSON.stringify(data.user)); // lưu dữ liệu vào local storage
                     toastr.success("Đăng Nhập thành công, chờ chuyển trang");
                     if (data.user.id === 1) {
                         setTimeout(() => {
                             document.location.href = "/admin/statistical";
-                        }, 2000);
+                        }, 1000);
                     } else {
                         document.location.href = "/";
                     }
