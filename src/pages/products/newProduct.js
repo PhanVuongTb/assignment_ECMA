@@ -1,8 +1,9 @@
 import { getAll } from "../../api/products";
 
+const param = null;
 const NewProduct = {
   async render() {
-    const { data } = await getAll();
+    const { data } = await getAll(param);
     return /* html */ `
         <div class="my-20">
         <div class="flex flex-row justify-between my-5">
@@ -34,5 +35,32 @@ const NewProduct = {
             </div>
         `;
   },
+  async afterRender() {
+    const { data } = await getAll(param);
+    const RenderPage = document.querySelector(".renderPage");
+    const listPageSto = [];
+    let ListPage = "";
+
+    const numberPage = Math.ceil(data.length / 6);
+    for (let index = 1; index <= numberPage; index++) {
+      ListPage += `<li class="inline-block"><button class="PageNumber border border-black px-2 cursor-pointer hover:bg-black hover:text-white text-2xl listPage ml-2" value="${index}">${index}</button></li>`;
+    }
+
+    RenderPage.innerHTML = ListPage;
+
+    const listPage = document.querySelectorAll(".listPage");
+
+    listPage.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        const pages = {
+          numberPage: item.value,
+        };
+        listPageSto.push(pages);
+        localStorage.setItem("listPage", JSON.stringify(listPageSto));
+        reRender(HomePage, "#app", item.value);
+      });
+    });
+  },
+
 };
 export default NewProduct;

@@ -1,12 +1,12 @@
-import { getAll } from "../../api/products";
 import { getAllCate } from "../../api/category";
+import { filterCate } from "../../api/products";
 import Header from "../../comboudun/header";
 import Footer from "../../comboudun/footer";
 
 const ProductsPage = {
-  async render() {
+  async render(idCate) {
     const cate = (await getAllCate()).data;
-    const { data } = await getAll();
+    const products = await (await filterCate(idCate)).data;
     return /* html */`
         <div id="header">
                 ${Header.render()}
@@ -23,16 +23,16 @@ const ProductsPage = {
         </div>
         
         <div class="grid grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
-          ${data.map((product) => `
+        ${products.map((items) => /* html */`
           <div class="shadow-lg rounded-lg">
-            <a href="/products/${product.id}">
-              <img src="${product.img}" class="rounded-tl-lg rounded-tr-lg" />
+            <a href="/products/${items.id}">
+              <img src="${items.img}" class="rounded-tl-lg rounded-tr-lg" />
             </a>
             <div class="p-5">
-              <h3><a href="/products/${product.id}">${product.name}</a></h3>
+              <h3><a href="/products/${items.id}">${items.name}</a></h3>
               <div class="flex flex-col xl:flex-row justify-between">
                 <a id="btnAddToCart" class="bg-gradient-to-r from-red-600 to-pink-500 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-pink-600 hover:from-pink-600 hover:to-pink-600 flex flex-row justify-center"
-                  href="/products/${product.id}">
+                  href="/products/${items.id}">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -41,7 +41,7 @@ const ProductsPage = {
                   Add to cart
                 </a>
                 <a class="bg-purple-600 rounded-full py-2 px-4 my-2 text-sm text-white hover:bg-purple-700 flex flex-row justify-center"
-                  href="/products/${product.id}">
+                  href="/products/${items.id}">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd"
                       d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"

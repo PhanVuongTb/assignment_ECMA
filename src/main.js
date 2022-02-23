@@ -22,10 +22,6 @@ import AddNewsPage from "./admin/news/add";
 import newsPage from "./admin/news/index";
 import editNews from "./admin/news/edit";
 
-import newsCate from "./admin/cate/index";
-import AddCate from "./admin/cate/add";
-import editCate from "./admin/cate/edits";
-
 import UserPage from "./admin/user";
 import AddUserPage from "./admin/user/add";
 import editUser from "./admin/user/edit";
@@ -33,6 +29,7 @@ import editUser from "./admin/user/edit";
 import ProductsAddPage from "./admin/products/add";
 import ProductsPage from "./admin/products";
 import ProductsEdit from "./admin/products/edit";
+import ProductsAllDetail from "./pages/products/AllProductsDetail";
 
 const router = new Navigo("/", { linksSelector: "a", hash: true }); // router thừa kế các thuộc tính của NAvigo, link để không load trang
 
@@ -51,6 +48,9 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
     },
     "/sanpham": () => {
         print(Products);
+    },
+    "/products/:id/cate": ({ data }) => {
+        print(ProductsAllDetail, data.id);
     },
     "/lienhe": () => {
         print(Contact);
@@ -112,9 +112,6 @@ router.on({ // phương thức on nằm trong navigo để duyệt qua tất c�
 
     "/post": () => print(PostPage),
     "/post/:id": ({ data }) => print(DetailNewsPage, data.id),
-    "/admin/cate": () => print(newsCate),
-    "/admin/cate/add": () => print(AddCate),
-    "/admin/cate/:id/edit": ({ data }) => print(editCate, data.id),
     "/admin/user/:id/edit": ({ data }) => print(editUser, data.id),
 
 });

@@ -34,15 +34,5 @@ const homePage = {
   afterRender() {
     header.afterRender();
   },
-  // serach() {
-  //   const search = document.getElementById("searchItem").value;
-  //   const list = this.response;
-  //   console.log(list);
-  //   // if (search) {
-  //   //     for (let i = 0; i < list.length; i++) {
-  //   //         const str = list[i].name;
-  //   //     }
-  //   // }
-  // },
 };
 export default homePage;

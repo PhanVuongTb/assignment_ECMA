@@ -34,7 +34,7 @@ const DetailProductPage = {
                 <div class="mt-3">
                   <label class="text-gray-700 text-sm" for="count">Thông tin sản phẩm:</label>
                   <div class="flex items-center mt-1">
-                  <p>${data.desc}</p>
+                  <p>${data.detail}</p>
                   </div>
                 </div>
                 <div class="flex items-center mt-6">

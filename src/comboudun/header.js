@@ -33,16 +33,17 @@ const Header = {
                 <!-- tìm kiếm -->
                 <div class="pr-5">
                   <div class="relative mt-6 max-w-lg mx-auto">
-                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                  <input
+                      class="w-full border rounded-md pl-10 pr-4 py-2 focus:border-blue-500 focus:outline-none focus:shadow-outline"
+                      type="text" placeholder="Search" id="search">
+                      <a  id="btnSearch"><span class="absolute inset-y-0 left-0 pl-3 flex items-center">
                       <svg class="h-5 w-5 text-gray-500" viewBox="0 0 24 24" fill="none">
                         <path
                           d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
                           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                       </svg>
-                    </span>
-                    <input
-                      class="w-full border rounded-md pl-10 pr-4 py-2 focus:border-blue-500 focus:outline-none focus:shadow-outline"
-                      type="text" placeholder="Search">
+                    </span></a>
+                    
                   </div>
                 </div>
     
@@ -134,26 +135,11 @@ const Header = {
               href="/#/products">Shop</a>
     
             <!-- Danh mục -->
-            <div @click.away="open = false" class="relative" x-data="{ open: false }">
-              <button @click="open = !open"
+            <div class="relative" x-data="{ open: false }">
+              <a href="/#"
                 class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-                <span>Danh mục</span>
-                <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}"
-                  class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
-                  <path fill-rule="evenodd"
-                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                    clip-rule="evenodd"></path>
-                </svg>
-              </button>
-              <div x-show="open" x-transition:enter="transition ease-out duration-100"
-                x-transition:enter-start="transform opacity-0 scale-95"
-                x-transition:enter-end="transform opacity-100 scale-100"
-                x-transition:leave="transition ease-in duration-75"
-                x-transition:leave-start="transform opacity-100 scale-100"
-                x-transition:leave-end="transform opacity-0 scale-95"
-                class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
-                ${Cate.render()}
-              </div>
+                <span>Giới thiệu</span>
+              </a>
             </div>
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
               href="/post">Bài viết</a>
